@@ -46,36 +46,52 @@
                 var parser = new DOMParser();
                 var parsedValue = parser.parseFromString(fileValue, 'text/html');
 
-                // var list = parsedValue.getElementsByClassName("content-cell mdl-cell mdl-cell--6-col mdl-typography--body-1");
-                var list = parsedValue.getElementsByTagName("a");
-                console.log("Found total " + list.length + " videos");
+                var body = parsedValue.getElementsByTagName("body");
 
-                if (list.length > 0) {
-                    console.log("Latest video:");
-                    console.log(list[0]);
-                }
+                var rootDiv = body[0].childNodes[1].childNodes
+                var videoList = Array.from(rootDiv).filter(node => node.nodeName == "DIV");
+                console.log("Total videos: "+ videoList.length);
 
-                processList(list);
+                processList(videoList);
             }
 
             function processList(videoList) {
                 var viewsMap = new Map();
                 var nameMap = new Map();
 
+                var ads = 0;
+
                 for (const video of videoList) {
-                    if (video.pathname.indexOf("/watch") == -1) 
+                    if(video.innerText.indexOf("From Google Ads") != -1){
+                        ++ads;
                         continue;
+                    }
+
+                    var link = getVideoUrl(video.getElementsByTagName("a"));
                     
-                    var videoUrl = video.href;
-                    var videoTitle = video.innerText;
+                    if(link == null)
+                        continue;
+
+                    var videoUrl = link.href;
+                    var videoTitle = link.innerText;
 
                     nameMap.set(videoUrl, videoTitle);
                     viewsMap.set(videoUrl, viewsMap.get(videoUrl) + 1 || 1);
                 }
 
+                console.log("Total ads: "+ ads);
+
                 var sortedViewsMap = new Map([... viewsMap.entries()].sort((a, b) => b[1] - a[1]));
 
                 renderResult(nameMap, sortedViewsMap);
+            }
+
+            function getVideoUrl(links){
+                for(var link of links){
+                    if(link.pathname == "/watch")
+                        return link;
+                }
+                return null;
             }
 
             function renderResult(nameMap, sortedViewsMap) {
