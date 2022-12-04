@@ -1,7 +1,7 @@
 # YoutubeWrapped
 ## An inspired version of Spotify wrapped for YouTube.
 
-*Disclaimer: JS is not my area of expertise and this is just a hobby project.*
+*Disclaimer: JS is not my area of expertise and this is just a hobby project. There will be UI and performance updates shortly, as this is a very early stage*
 
 ***Usage instructions:***
 1. Go to Google Takeout and request for youtube history data.
