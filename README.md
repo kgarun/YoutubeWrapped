@@ -5,8 +5,9 @@
 
 ***Usage instructions:***
 1. Request your YouTube history data from [Google Takeout](https://takeout.google.com/).![image](https://user-images.githubusercontent.com/21175650/205507733-67227850-ed10-4ef2-9b10-1639399f160c.png)
-2. To view your YouTube statistics, go to https://kgarun.github.io/YoutubeWrapped/ and input 'watch-history.html'.
-3. The file is not uploaded anywhere, it is simply processed in the browser:smiley:
+2. When the takeout file is ready, download and extract it. It contains 'watch-history.html'.
+3. To view your YouTube statistics, go to https://kgarun.github.io/YoutubeWrapped/ and input 'watch-history.html'.
+4. The file is not uploaded anywhere, it is simply processed in the browser:smiley:
 
 ![image](https://user-images.githubusercontent.com/21175650/205505953-9ec238d9-17fc-4c63-8036-5ef39e96b582.png)
 
