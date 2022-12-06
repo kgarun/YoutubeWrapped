@@ -30,11 +30,19 @@ function getVideoList(fileValue) {
 
     var body = parsedValue.getElementsByTagName("body");
 
-    var rootDiv = body[0].childNodes[1].childNodes
+    var rootDiv = getDivNode(body[0].childNodes).childNodes
     var videoList = Array.from(rootDiv).filter(node => node.nodeName == "DIV");
     console.log("Total videos: " + videoList.length);
 
     processList(videoList);
+}
+
+function getDivNode(childNodes){
+    for(var node of childNodes){
+        if(node.tagName == 'DIV')
+            return node;
+    }
+    return null;
 }
 
 function printProgress(total, current) {
