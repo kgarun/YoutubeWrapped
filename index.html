@@ -1,119 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Youtube wrapped</title>
+        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script type="text/javascript" src="script.js" defer></script>
     </head>
     <body>
-        <div style="background: height: 100%; width: 100%">
-            <div style="background: height: 20%; width: 100%">
-                <label>Watch history file:
+        <div class="input-container">
+            <form>
+                <label>Watch history file :
                     <input type="file" id="watch-history-file" accept=".html">
                 </label>
-            </div>
-
-            <div style="background: height: 80%; width: 100%">
-                <table id="top-25-videos" class="w3-table-all"></table>
-            </div>
+            </form>
         </div>
-        <script>
-            document.getElementById("watch-history-file").addEventListener("change", (event) => {
-                var file = event.target.files[0];
-                generateReport(file);
-            });
-
-            function generateReport(file) {
-                loadFile(file);
-            }
-
-            function loadFile(file) {
-                var reader = new FileReader();
-
-                reader.onload = function () {
-                    console.log("File loaded successfully. Size: " + reader.result.length + " MB");
-                    getVideoList(reader.result)
-                };
-
-                reader.onerror = function () {
-                    console.log("Some error occured while loading file.");
-                }
-
-                reader.readAsText(file);
-            }
-
-            function getVideoList(fileValue) {
-                console.log("Parsing file contents. Size: " + fileValue.length + " MB");
-
-                var parser = new DOMParser();
-                var parsedValue = parser.parseFromString(fileValue, 'text/html');
-
-                var body = parsedValue.getElementsByTagName("body");
-
-                var rootDiv = body[0].childNodes[1].childNodes
-                var videoList = Array.from(rootDiv).filter(node => node.nodeName == "DIV");
-                console.log("Total videos: "+ videoList.length);
-
-                processList(videoList);
-            }
-
-            function processList(videoList) {
-                var viewsMap = new Map();
-                var nameMap = new Map();
-
-                var ads = 0;
-
-                for (const video of videoList) {
-                    if(video.innerText.indexOf("From Google Ads") != -1){
-                        ++ads;
-                        continue;
-                    }
-
-                    var link = getVideoUrl(video.getElementsByTagName("a"));
-                    
-                    if(link == null)
-                        continue;
-
-                    var videoUrl = link.href;
-                    var videoTitle = link.innerText;
-
-                    nameMap.set(videoUrl, videoTitle);
-                    viewsMap.set(videoUrl, viewsMap.get(videoUrl) + 1 || 1);
-                }
-
-                console.log("Total ads: "+ ads);
-
-                var sortedViewsMap = new Map([... viewsMap.entries()].sort((a, b) => b[1] - a[1]));
-
-                renderResult(nameMap, sortedViewsMap);
-            }
-
-            function getVideoUrl(links){
-                for(var link of links){
-                    if(link.pathname == "/watch")
-                        return link;
-                }
-                return null;
-            }
-
-            function renderResult(nameMap, sortedViewsMap) {
-                var tableBody = document.getElementById("top-25-videos");
-
-                var sortedViewsArray = Array.from(sortedViewsMap, ([url, views]) => ({url, views}));
-
-                for (var i = 0; i < sortedViewsArray.length && i < 25; ++ i) {
-                    newRow = document.createElement("tr");
-                    newRow.class = "w3-light-grey"
-
-                    newCell = document.createElement("td");
-                    newCell.textContent = nameMap.get(sortedViewsArray[i].url);
-                    newRow.appendChild(newCell);
-
-                    newCell = document.createElement("td");
-                    newCell.textContent = sortedViewsArray[i].views;
-                    newRow.appendChild(newCell);
-
-                    tableBody.appendChild(newRow);
-                }
-            }
-        </script>
+        <div class="result-container">
+            <h4 id="status-msg"></h4>
+            <h4 id="summary"></h4>
+            <table id="top-videos"></table>
+            <br>
+            <table id="top-channels"></table>
+        </div>
     </body>
 </html>
