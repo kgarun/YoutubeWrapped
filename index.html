@@ -1,25 +1,38 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Youtube wrapped</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <script type="text/javascript" src="script.js" defer></script>
-    </head>
-    <body>
-        <div class="input-container">
-            <form>
-                <label>Watch history file :
-                    <input type="file" id="watch-history-file" accept=".html">
-                </label>
-            </form>
-        </div>
-        <div class="result-container">
-            <h4 id="status-msg"></h4>
-            <h4 id="summary"></h4>
-            <table id="top-videos"></table>
-            <br>
-            <table id="top-channels"></table>
-        </div>
-    </body>
+
+<head>
+	<meta charset="utf-8">
+	<title>Youtube wrapped</title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="script.js" defer></script>
+</head>
+
+<body>
+	<section class="container">
+		<div class="file">
+			<form>
+				Select your watch history file
+				<input type="file" id="watch-history-file" accept=".html">
+			</form>
+			<h4 id="status-msg"></h4>
+		</div>
+		<div class="summary">
+			<div class="channel-summary">
+			</div>
+			<div class="video-summary">
+			</div>
+			<div class="ad-summary">
+			</div>
+		</div>
+		<div class="stats">
+			<div class="video-stats">
+				<table id="top-videos"></table>
+			</div>
+			<div class="channel-stats">
+				<table id="top-channels"></table>
+			</div>
+		</div>
+	</section>
+</body>
+
 </html>

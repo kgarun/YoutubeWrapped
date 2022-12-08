@@ -11,7 +11,7 @@ function loadFile(file) {
     var reader = new FileReader();
 
     reader.onload = function () {
-        console.log("File loaded successfully. Size: " + reader.result.length + " MB");
+        console.log("File loaded successfully. Size: " + reader.result.length / 1024.0 + " KB");
         getVideoList(reader.result)
     };
 
@@ -23,7 +23,7 @@ function loadFile(file) {
 }
 
 function getVideoList(fileValue) {
-    console.log("Parsing file contents. Size: " + fileValue.length + " MB");
+    console.log("Parsing file contents. Size: " + fileValue.length / 1024.0 + " KB");
 
     var parser = new DOMParser();
     var parsedValue = parser.parseFromString(fileValue, 'text/html');
@@ -37,9 +37,9 @@ function getVideoList(fileValue) {
     processList(videoList);
 }
 
-function getDivNode(childNodes){
-    for(var node of childNodes){
-        if(node.tagName == 'DIV')
+function getDivNode(childNodes) {
+    for (var node of childNodes) {
+        if (node.tagName == 'DIV')
             return node;
     }
     return null;
@@ -125,9 +125,15 @@ function getChannel(links) {
     return null;
 }
 
-function renderSummary(channels, videos, ads){
-    summary = document.getElementById("summary");
-    summary.innerText = "You've watched " + videos + " videos from " + channels + " channels and a total of " + ads + " ads!"
+function renderSummary(channels, videos, ads) {
+    summary = document.getElementsByClassName("channel-summary")[0];
+    summary.innerHTML = "<h4>Explored " + channels + " channels</h4>";
+
+    summary = document.getElementsByClassName("video-summary")[0];
+    summary.innerHTML = "<h4>Watched " + videos + " videos</h4>";
+
+    summary = document.getElementsByClassName("ad-summary")[0];
+    summary.innerHTML = "<h4>Skipped " + ads + " ads</h4>";
 }
 
 function renderTableRow(table, column1, column2, isHeading) {
@@ -163,7 +169,7 @@ function renderTopChannels(nameMap, sortedViewsMap) {
 
     renderTableRow(tableBody, "Channel", "Views", true)
 
-    for (var i = 0; i < sortedViewsArray.length && i < 15; ++i) {
+    for (var i = 0; i < sortedViewsArray.length && i < 25; ++i) {
         renderTableRow(tableBody, nameMap.get(sortedViewsArray[i].url), sortedViewsArray[i].views, false)
     }
 }
