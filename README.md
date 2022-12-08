@@ -15,5 +15,6 @@
 - W3Schools
 - Stack overflow
 - MDN webdocs
+- [Icon finder](https://www.iconfinder.com/icons/211815/rewind_icon)
 - and many more ...
 
