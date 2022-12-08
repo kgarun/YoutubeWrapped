@@ -127,13 +127,13 @@ function getChannel(links) {
 
 function renderSummary(channels, videos, ads) {
     summary = document.getElementsByClassName("channel-summary")[0];
-    summary.innerHTML = "<h4>Explored " + channels + " channels</h4>";
+    summary.innerHTML = "<h3>Explored " + channels + " channels</h3>";
 
     summary = document.getElementsByClassName("video-summary")[0];
-    summary.innerHTML = "<h4>Watched " + videos + " videos</h4>";
+    summary.innerHTML = "<h3>Watched " + videos + " videos</h3>";
 
     summary = document.getElementsByClassName("ad-summary")[0];
-    summary.innerHTML = "<h4>Skipped " + ads + " ads</h4>";
+    summary.innerHTML = "<h3>Skipped " + ads + " ads</h3>";
 }
 
 function renderTableRow(table, column1, column2, isHeading) {
