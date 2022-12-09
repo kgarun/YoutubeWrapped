@@ -1,22 +1,116 @@
-#top-videos, #top-channels {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 90%;
-  }
-  
-td, th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-tr:nth-child(even){background-color: #f2f2f2;}
-  
-tr:hover {background-color: #ddd;}
+body {
+  background-color: #65C18C;
+  color: black;
+  font-family: cursive;
+  text-align: center;
+}
 
-th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
-  }
+input {
+  background-color: #65C18C;
+  color: black;
+  font-family: cursive;
+  text-align: center;
+  margin-right: 20px;
+  border: none;
+  background: black;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.file,
+.channel-summary,
+.video-summary,
+.ad-summary,
+.video-stats,
+.channel-stats {
+  border-style: solid;
+  border-color: black;
+  margin-right: 0.5%;
+  margin-left: 0.5%;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+}
+
+.file {
+  background-color: #65C18C;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 15%;
+}
+
+.summary,
+.stats {
+  background-color: #65C18C;
+}
+
+.summary {
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+  height: 15%;
+}
+
+.channel-summary,
+.video-summary,
+.ad-summary {
+  width: 33%;
+  background-color: #65C18C;
+  transition: 1s;
+}
+
+.channel-summary:hover,
+.video-summary:hover,
+.ad-summary:hover{
+  transform: scale(1.03);
+}
+
+.video-stats:hover,
+.channel-stats:hover{
+  transform: scale(1.02);
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  text-align: justify;
+  height: 70%;
+}
+
+.video-stats {
+  width: 75%;
+  background-color: #65C18C;
+  transition: 1s;
+}
+
+.channel-stats {
+  width: 25%;
+  background-color: #65C18C;
+  transition: 1s;
+}
+
+table {
+  margin-right: 1%;
+  margin-left: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  width: 98%;
+  height: 98%;
+}
+
+th,
+td {
+  padding: 1%;
+  border-spacing: 1%;
+}
+
+tr:nth-child(odd) {
+  background-color: black;
+  color: #65C18C;
+}
