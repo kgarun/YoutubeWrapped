@@ -16,5 +16,6 @@
 - W3Schools
 - Stack overflow
 - MDN webdocs
+- https://nikitahl.com/custom-styled-input-type-file
 - and many more ...
 
