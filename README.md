@@ -17,5 +17,6 @@
 - Stack overflow
 - MDN webdocs
 - https://nikitahl.com/custom-styled-input-type-file
+- [Icon finder](https://www.iconfinder.com/icons/211815/rewind_icon)
 - and many more ...
 
