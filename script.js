@@ -1,7 +1,16 @@
 document.getElementById("watch-history-file").addEventListener("change", (event) => {
     var file = event.target.files[0];
     generateReport(file);
+    displayReportTags();
 });
+
+function displayReportTags(){
+    var summary = document.getElementsByClassName("summary")[0];
+    summary.style.display = 'flex';
+
+    var stats = document.getElementsByClassName("stats")[0];
+    stats.style.display = 'flex';
+}
 
 function generateReport(file) {
     loadFile(file);

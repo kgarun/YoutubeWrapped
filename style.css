@@ -1,14 +1,13 @@
 body {
-  background-color: #65C18C;
+  background-color: #128c7e;
   color: black;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
 input {
-  background-color: #65C18C;
+  background-color: #128c7e;
   color: black;
-  font-family: cursive;
   text-align: center;
   margin-right: 20px;
   border: none;
@@ -39,15 +38,20 @@ input {
 }
 
 .file {
-  background-color: #65C18C;
+  background-color: #128c7e;
   margin-top: auto;
   margin-bottom: auto;
   height: 15%;
+  transition: 1s;
+}
+
+.file:hover{
+  transform: scale(1.02);
 }
 
 .summary,
 .stats {
-  background-color: #65C18C;
+  background-color: #128c7e;
 }
 
 .summary {
@@ -61,7 +65,7 @@ input {
 .video-summary,
 .ad-summary {
   width: 33%;
-  background-color: #65C18C;
+  background-color: #128c7e;
   transition: 1s;
 }
 
@@ -85,13 +89,13 @@ input {
 
 .video-stats {
   width: 75%;
-  background-color: #65C18C;
+  background-color: #128c7e;
   transition: 1s;
 }
 
 .channel-stats {
   width: 25%;
-  background-color: #65C18C;
+  background-color: #128c7e;
   transition: 1s;
 }
 
@@ -112,5 +116,10 @@ td {
 
 tr:nth-child(odd) {
   background-color: black;
-  color: #65C18C;
+  color: #128c7e;
+}
+
+.stats,
+.summary{
+  display: none;
 }
