@@ -9,8 +9,7 @@
 3. To view your YouTube statistics, go to https://kgarun.github.io/YoutubeWrapped/ and input 'watch-history.html'.
 4. The file is not uploaded anywhere, it is simply processed in the browser:smiley:.
 
-![image](https://user-images.githubusercontent.com/21175650/206720595-144f2545-2077-4f4e-917e-44f2f2f9d37b.png)
-
+![finai-ui-blurred](https://user-images.githubusercontent.com/21175650/206831267-8e967bce-915b-4edf-aa84-84e5d927fa36.png)
 
 ***Credits:orange_heart:***
 - W3Schools
