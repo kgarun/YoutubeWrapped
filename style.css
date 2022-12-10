@@ -41,11 +41,6 @@ input {
   margin-top: auto;
   margin-bottom: auto;
   height: 15%;
-  transition: 1s;
-}
-
-.file:hover{
-  transform: scale(1.02);
 }
 
 .summary,
@@ -70,12 +65,12 @@ input {
 
 .channel-summary:hover,
 .video-summary:hover,
-.ad-summary:hover{
+.ad-summary:hover {
   transform: scale(1.03);
 }
 
 .video-stats:hover,
-.channel-stats:hover{
+.channel-stats:hover {
   transform: scale(1.02);
 }
 
@@ -119,6 +114,15 @@ tr:nth-child(odd) {
 }
 
 .stats,
-.summary{
+.summary {
   display: none;
+}
+
+.file,
+.channel-summary,
+.video-summary,
+.ad-summary,
+.video-stats,
+.channel-stats{
+  box-shadow: 0 0 20px;
 }
